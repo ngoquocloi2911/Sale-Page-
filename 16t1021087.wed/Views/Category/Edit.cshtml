@@ -1,0 +1,83 @@
+﻿@model _16t1021087.DomainModels.Category
+@{
+    
+}
+
+
+<div class="box box-primary">
+    <div class="box-body">
+        <form class="form-horizontal" action="~/Category/Save" method="post">
+
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(m => m.CategoryID)
+
+            @Html.ValidationSummary("", new { @style = "color:#f00" })
+
+            @*  <input type="hidden" name="CategoryID" value="@Model.CategoryID" />*@
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Tên Loại hàng:</label>
+                <div class="col-sm-10">
+
+                    @Html.TextBoxFor(m => m.CategoryName,
+                   new { @class = "form-control", @placehoder = "", @autofocus = "autofocus" })
+                    @*<input type="text" class="form-control" id="CategoryName"
+                name="CategoryName" autofocus value="@Model.CategoryName">*@
+                    @Html.ValidationMessageFor(m => m.CategoryName, "", new { @style = "color:#f00" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Mô tả:</label>
+                <div class="col-sm-10">
+
+                    @Html.TextBoxFor(m => m.Description,
+                   new { @class = "form-control", @placehoder = "", @autofocus = "autofocus" })
+                    @*<input type="text" class="form-control" id="description"
+                name="description" value="@Model.Description">*@
+                    @Html.ValidationMessageFor(m => m.Description, "", new { @style = "color:#f00" })
+                </div>
+            </div>
+
+            <!--<div class="form-group">
+                <label class="control-label col-sm-2" for="email">Mô tả:</label>
+                <div class="col-sm-10">-->
+
+                    @*@Html.TextBoxFor(m => m.ParentCategoryId,
+                   new { @class = "form-control", @placehoder = "", @autofocus = "autofocus" })*@<!---->
+                    @*<input type="text" class="form-control" id="description"
+                name="description" value="@Model.Description">*@
+                    <!---->@*@Html.ValidationMessageFor(m => m.ParentCategoryId, "", new { @style = "color:#f00" })*@
+                <!--</div>
+            </div>-->
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="glyphicon glyphicon-floppy-disk"></i> Lưu dữ liệu
+                    </button>
+                    <a href="~/Category" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-circle-arrow-left"></i>
+                        Quay lại
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    .control-label {
+        font-weight: bolder;
+        font-size: 15px;
+        margin-right: -20px;
+        color: #3d0455;
+    }
+
+    .form-horizontal {
+        background-color: #89c7f5;
+        margin: -10px;
+        padding: 10px;
+    }
+</style>
+
+

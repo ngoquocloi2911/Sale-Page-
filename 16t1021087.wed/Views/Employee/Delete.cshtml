@@ -1,0 +1,61 @@
+﻿@model _16t1021087.DomainModels.Employye
+@{
+    ViewBag.Title = "Xóa nhân viên";
+}
+
+
+<div class="box box-danger">
+    <div class="box-body box-profile">
+        <form class="form-horizontal" action="~/Employee/Delete/@Model.EmployeeID" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                
+
+                <img class="profile-user-img img-responsive img-circle"  id="photo" alt="your image" width="200" height="200" 
+                     src="~/Photo/@Model.Photo" />
+                @Html.HiddenFor(m => m.Photo)
+
+                <h3 class="profile-username text-center" style="color:red">@Model.FirstName @Model.LastName</h3>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Ngày sinh:</label>
+                    <div class="col-sm-10">
+                        @Html.ValueFor(m => m.BirthDate)
+                        @*<p class="form-control-startic">@Model.BirthDate</p>*@
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Email:</label>
+                    <div class="col-sm-10">
+                        @Html.ValueFor(m => m.Email)
+                        @*<p class="form-control-startic">@Model.Email</p>*@
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Ghi chú:</label>
+                    <div class="col-sm-10">
+                        @Html.ValueFor(m => m.Notes)
+                        @*<textarea class="form-control" rows="2" placeholder="@Model.Notes"></textarea>*@
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10" style="margin-top:10px">
+                        <button type="submit" class="btn btn-danger" ">Xóa dữ liệu</button>
+                        <a href="/Employee" class="btn btn-warning">Quay lại</a>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+        <!-- /.box-body -->
+    </div>
+    <style>
+        .box-body {
+            background-color: #f5caef;
+            color: #1a2a92;
+        }
+    </style>

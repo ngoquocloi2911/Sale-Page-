@@ -1,0 +1,84 @@
+﻿@model _16t1021087.DomainModels.Customer
+@{
+    ViewBag.Title = "Xóa Khách hàng";
+}
+
+<div class="box box-danger">
+<div class="box-body">
+    <form class="form-horizontal" action="~/Customer/Delete/@Model.CustomerID" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Tên khách hàng:</label>
+            <div class="col-sm-10">
+                @Html.ValueFor(m => m.CustomerName)
+                @*<p class="form-control-startic">@Model.CustomerName</p>*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Tên giao dịch:</label>
+            <div class="col-sm-10">
+                @Html.ValueFor(m => m.ContactName)
+                @*<p class="form-control-startic">@Model.ContactName</p>*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Địa chỉ:</label>
+            <div class="col-sm-10">
+                @Html.ValueFor(m => m.Address)
+                @*<p class="form-control-startic">@Model.Address	</p>*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Email:</label>
+            <div class="col-sm-10">
+                @Html.ValueFor(m => m.Email)
+               @* <p class="form-control-startic">@Model.Email</p>*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Thành phố:</label>
+            <div class="col-sm-10">
+                @Html.ValueFor(m => m.City)
+                @*<p class="form-control-startic">@Model.City</p>*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Quốc gia:</label>
+            <div class="col-sm-10">
+                @Html.ValueFor(m => m.Country)
+                @*<p class="form-control-startic">@Model.Country</p>*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Mã bưu chính:</label>
+            <div class="col-sm-10">
+                @Html.ValueFor(m => m.PostalCode)
+                @*<p class="form-control-startic">@Model.PostalCode</p>*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-danger" ">Xóa dữ liệu</button>
+                <a href="/Customer" class="btn btn-warning">Quay lại</a>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+<style>
+    .box-body {
+        background-color: #f5caef;
+        color: #1a2a92;
+    }
+</style>
+
+
+

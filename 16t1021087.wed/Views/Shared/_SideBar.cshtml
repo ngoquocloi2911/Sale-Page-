@@ -1,0 +1,71 @@
+﻿<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="~/Themes/dist/img/92126724_1538775489615608_2948721956121214976_n.jpg" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                @{
+                    var userAccount = Converter.CookieToUserAccount(User.Identity.Name);
+
+
+                }
+                <p>@userAccount.FullName</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+     
+        <ul class="sidebar-menu" data-widget="tree">
+            <li><a href="~/Home"><i class="treeview"></i> Trang chủ</a></li>
+            <li class="treeview active">
+                <a href="#">
+                    <i class="fa fa-folder"></i> <span>Quản Lý Dữ Liệu </span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+
+                    <li>
+                        <a href="~/Supplier"><i class="fa fa-circle-o"></i>Nhà Cung Cấp </a>
+                    </li>
+                    <li>
+                        <a href="~/Customer"><i class="fa fa-circle-o"></i>Khách Hàng </a>
+                    </li>
+                    <li>
+                        <a href="~/Shipper"><i class="fa fa-circle-o"></i>Giao Hàng </a>
+                    </li>
+                    <li>
+                        <a href="~/Employee"><i class="fa fa-circle-o"></i>Nhân Viên </a>
+                    </li>
+                    <li>
+                        <a href="~/Category"><i class="fa fa-circle-o"></i>Loại Hàng </a>
+                    </li>
+                    <li>
+                        <a href="~/Product"><i class="fa fa-circle-o"></i>Mặt Hàng </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview active">
+                <a href="#">
+                    <i class="fa fa-folder"></i> <span>Bán Hàng </span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="~/Order/Create"><i class="fa fa-circle-o"></i>Lập Đơn Hàng </a>
+                    </li>
+                    <li>
+                        <a href="~/Order"><i class="fa fa-circle-o"></i>Xử lý đơn hàng </a>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

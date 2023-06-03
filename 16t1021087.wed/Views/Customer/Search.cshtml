@@ -1,0 +1,82 @@
+﻿@model _16t1021087.wed.Models.CustomerSearchOutput
+
+@{
+    Layout = null;
+}
+<p  style="margin:10px 0 10px 0">
+    có <strong>@string.Format("{0:N0}", Model.RowCount)</strong>
+    khách hàng trong tổng số <strong> @string.Format("{0:N0}", Model.PageCount)</strong>
+    Trang
+</p>
+
+<div class="tbody">
+    <div class="table-responsive">
+        <table class=" table table-bordered table-hover table-striped" >
+            <thead>
+                <tr class="bg-primary">
+                    <th> Tên khách hàng</th>
+                    <th> Tên liên hệ</th>
+                    <th> Địa chỉ </th>
+                    <th> Email</th>
+                    <th> Quốc gia </th>
+                    <th> Thành phố</th>
+                    <th> Mã bưu điện</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Data)
+                {
+                    <tr class="td">
+                        <td>@item.CustomerName</td>
+                        <td>@item.ContactName</td>
+                        <td>@item.Address</td>
+                        <td>@item.Email</td>
+                        <td>@item.City</td>
+                        <td>@item.Country</td>
+                        <td>@item.PostalCode</td>
+                        <td>
+                            <a href="~/Customer/Edit/@item.CustomerID" class="btn btn-sm btn-success">Edit</a>
+                            <a href="~/Customer/Delete/@item.CustomerID" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+    </div>
+        <div class="text-center">
+            <ul class="pagination">
+                @for (int i = 1; i <= Model.PageCount; i++)
+                {
+                    if (i == Model.Page)
+                    {
+                        <li class="active"><a href="#">@i</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="javascript:;" onclick="doSearch(@i)">@i</a></li>
+                    }
+                }
+            </ul>
+        </div>
+    
+    <style>
+        .bg-primary {
+            text-align: center;
+        }
+
+        .pagination {
+            font-weight: bold;
+            background: border-box;
+        }
+
+        .td {
+            color: #000000;
+            background-color: beige;
+        }
+
+        .tbody {
+            background-color: beige;
+        }
+    </style>

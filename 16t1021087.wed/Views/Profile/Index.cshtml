@@ -1,0 +1,125 @@
+﻿@model _16t1021087.DomainModels.UserAccount
+@{
+    ViewBag.Title = "Thông tin tài khoản";
+}
+
+<head>
+    <!-- Thêm đường link từ bên ngoài-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</head>
+<div class="box box-info">
+    @{ var userAccount = Converter.CookieToUserAccount(User.Identity.Name); }
+    <div class="box-body">
+        <div class="container rounded bg-white mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-3 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="250" height="200" src="~/Photo/@userAccount.Photo"><h2 class="font-weight-bold">@userAccount.FullName</h2><h4 class="text-black-50">@userAccount.Email</h4><span> </span></div>
+                </div>
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="text-right">Thông tin cá nhân</h2>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">UserName</label>
+                            <input type="text" class="form-control" placeholder="enter phone number" readonly value="@userAccount.UserName ">
+                            </div>
+
+                            <div class="col-md-12"><label class="labels">FullName</label>
+                            <input type="text" class="form-control" placeholder="enter address line 1" value="@userAccount.FullName"></div>
+
+                            <div class="col-md-12"><label class="labels">Email</label>
+                            <input type="text" class="form-control" placeholder="enter address line 2" value="@userAccount.Email"></div>
+
+                            <div class="col-md-12"><label class="labels">RoleNames</label>
+                            <input type="text" class="form-control" placeholder="..." value="">@userAccount.RoleName</div>
+                        </div>
+
+                    </div>
+                </div> 
+                <div class="col-md-4">
+                    <div class="p-3 py-5">
+
+                        <h2 class="text-right">Đổi mật khẩu</h2>
+                        <div class="box box-danger">
+                            <div class="box-body">
+                                <form action="~/Profile/ChangePassword" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <div class="col-md-12">
+                                        <label class="labels">Tên tài khoản</label>
+                                        <input type="email" class="form-control" name="userName" value="@userAccount.UserName" readonly />
+
+                                       
+
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="labels">Mật khẩu cũ</label>
+                                        <input type="password" class="form-control" name="oldPassword" placeholder="Nhập mật khẩu Cũ" />
+                                        @Html.ValidationMessage("oldPassword")
+
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="labels">Mật khẩu mới</label>
+                                        <input type="password" class="form-control" name="newPassword" placeholder="Nhập mật khẩu mới" />
+                                        @Html.ValidationMessage("newPassword")
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="labels">Nhập lại mật khẩu</label>
+                                        <input type="password" class="form-control" name="preNewPassword" placeholder="Nhập lại mật khẩu mới" />
+                                        @Html.ValidationMessage("preNewPassword")
+                                        @Html.ValidationMessage("preNewPassword2")
+                                    </div>
+                                    <h4 style="color:green">@ViewBag.mesage </h4>
+                                    <button class="btn btn-primary profile-button" type="submit" style="margin-top: 10px; margin-left: 15px;">Đổi mật khẩu</button>
+                                    <a href="/Home" class="btn btn-warning" style="margin-top: 10px; margin-left: 105px;">Quay lại</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<style>
+    .box-body{
+        background-color:#eeead0;
+    }
+    .rounded-circle mt-5 {
+        text-align: center;
+    }
+
+    .text-black-50 {
+        font-weight: bolder;
+    }
+
+    .labels {
+        font-size: 17px;
+    }
+
+    .form-control {
+    }
+
+    .text-right {
+        text-align: center;
+        color: brown;
+        font-weight: bold;
+    }
+
+    .font-weight-bold {
+        color: brown;
+    }
+
+   
+    span.field-validation-error {
+        color: red;
+    }
+</style>
+

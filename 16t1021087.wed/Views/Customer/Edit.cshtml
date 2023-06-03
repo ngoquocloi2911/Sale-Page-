@@ -1,0 +1,126 @@
+﻿
+@model _16t1021087.DomainModels.Customer
+@{
+    
+}
+
+<div class="box box-primary">
+    <div class="box-body">
+        <form class="form-horizontal" action="~/Customer/Save" method="post">
+
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(m => m.CustomerID)
+  
+            @*<input type="hidden" name="CustomerID" value="@Model.CustomerID" />*@
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Tên khách hàng:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.CustomerName,
+                    new { @class = "form-control", @placehoder = "", @autofocus = "autofocus" })
+                    @*<input type="text" class="form-control" id="CustomerName" name="CustomerName" autofocus value="@Model.CustomerName">*@
+                    @Html.ValidationMessageFor(m => m.CustomerName, "", new { @style = "color:#f00" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Tên liên hệ:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.ContactName, new { @class = "form-control" })
+                    @*<input type="text" class="form-control" id="ContactName" name="ContactName"
+                value="@Model.ContactName">*@
+                    @Html.ValidationMessageFor(m => m.ContactName, "", new { @style = "color:#f00" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Địa chỉ:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                    @* <input type="text" class="form-control" id="Address" name="Address" value="@Model.Address">*@
+                    @Html.ValidationMessageFor(m => m.Address, "", new { @style = "color:#f00" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    @*<input type="text" class="form-control" id="email" name="email" value="@Model.Email">*@
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @style = "color:#f00" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Quốc gia:</label>
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(m => m.Country, SelectListHelper.Countries(), new { @class = "form-control" })
+                    @*<select class="form-control" id="Country" name="Country">
+            <option>-- Chọn quốc gia --</option>
+            @foreach (var item in _16t1021087.BussinessLayers.CommonDataService.ListOfCountries())
+            {
+                if (item.CountryName == Model.Country)
+                {
+                    <option value="@item.CountryName" selected> @item.CountryName</option>
+                }
+                <option value="@item.CountryName">@item.CountryName</option>
+
+            }
+        </select>*@
+                    @Html.ValidationMessageFor(m => m.Country, "", new { @style = "color:#f00" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Thành phố:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+                    @*<input type="text" class="form-control" id="City" name="City" value="@Model.City">*@
+                    @Html.ValidationMessageFor(m => m.City, "", new { @style = "color:#f00" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Mã bưu điện:</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control" })
+                    @*<input type="text" class="form-control" id="PostalCode" name="PostalCode"
+                value="@Model.PostalCode">*@
+                    @Html.ValidationMessageFor(m => m.PostalCode, "", new { @style = "color:#f00" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="glyphicon glyphicon-floppy-disk"></i> Lưu dữ liệu
+                    </button>
+                    <a href="~/Customer" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-circle-arrow-left"></i>
+                        Quay lại
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    .control-label {
+        font-weight: bolder;
+        font-size: 15px;
+        margin-right: -20px;
+        color: #3d0455;
+    }
+
+    .form-horizontal {
+        background-color: #89c7f5;
+        margin: -10px;
+        padding: 10px;
+    }
+</style>
+
+
+
+
